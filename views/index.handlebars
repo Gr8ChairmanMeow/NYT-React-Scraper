@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="jumbotron">
+        <h1>Article Scraper</h1>
+        <button class="btn-lg btn-danger">Scrape some articles!</button>
+        <button class="btn-lg btn-success">View Saved articles!</button>
+    </div><!-- 
+    <p>This is some text.</p>
+    <p>This is another text.</p> -->
+</div>
+<div id="wrapper">
+    <div id="articles">
+        <h2>Articles  <button class="btn-sm btn-info">Clear All</button></h2>
+        <hr>
+        <ul>
+            {{#each articles}}
+            <li>
+                <p data-id={{this._id}} class="articleNote"> {{this.title}}
+                <br />
+                {{> save-unsave}}
+                <button class="btn btn-add" data-id={{this._id}}>Add Comments</button>
+                <button class="btn btn-comments" data-id={{this._id}}>View Comments</button>
+                <br />
+                <a href={{this.link}} target="_blank">{{this.link}}</a></p>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+    <div id="notes"></div>
+</div>
