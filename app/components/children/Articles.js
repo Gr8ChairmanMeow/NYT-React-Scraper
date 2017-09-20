@@ -4,6 +4,8 @@ var React = require("react");
 // Helper for making AJAX requests to our API
 var helpers = require("../utils/helpers");
 
+var Article = require("./grandchildren/Article");
+
 // This is the History component. It will be used to show a log of  recent searches.
 var Articles = React.createClass({
 
@@ -24,14 +26,16 @@ var Articles = React.createClass({
       this.setState({ articles:response.data });
 
     }.bind(this));
-  },
+  },/*
   activateLasers: function(){
     console.log("MAH LAZERZ!")
-  },
+  },*/
   renderList: function() {
     return this.state.articles.map(function(article, i) {
+      console.log(typeof i);
       return (
-        <p key={i} className="thisArticle" onClick={this.activateLasers}>{article.title}</p>
+        //<p key={i} className="thisArticle" onClick={this.activateLasers}>{article.title}</p>
+        <Article id={article._id} title={article.title} />
       );
     }.bind(this))
   },
@@ -40,7 +44,7 @@ var Articles = React.createClass({
     return (
       <div className="panel panel-default">
         <div className="panel-heading">
-          <h3 className="panel-title text-center">Search History</h3>
+          <h3 className="panel-title text-center">Articles</h3>
         </div>
         <div className="panel-body text-center">
 

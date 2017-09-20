@@ -234,7 +234,7 @@ app.get("/save/:id", function(req, res) {
         }
         // Or send the newdoc to the browser
         else {
-            console.log(newdoc)
+            console.log(newdoc,"SAVE")
             res.send(newdoc);
         }
     });
