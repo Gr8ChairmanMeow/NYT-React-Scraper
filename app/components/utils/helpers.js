@@ -12,9 +12,9 @@ var helpers = {
   },
   // Also returns a promise object we can .then() off inside our Parent component
   // This method takes in an argument for what to post to the database
-  saveAddress: function(addressData) {
+  saveArticle: function(id) {
     console.log("SAVE ADDRESS");
-    return axios.post("/api", addressData);
+    return axios.get("/save/" + id);
   }
 
 };

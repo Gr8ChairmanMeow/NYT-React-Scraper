@@ -5,35 +5,16 @@ var React = require("react");
 var helpers = require("../utils/helpers");
 
 // This is the History component. It will be used to show a log of  recent searches.
-var Articles = React.createClass({
+var Article = React.createClass({
 
   // Here we set a generic state associated with the text being searched for
   getInitialState: function() {
-    return { articles: [] };
-  },
-
-  componentDidMount: function() {
-    // Get the latest history.
-    helpers.getArticles().then(function(response) {
-      console.log(response);
-/*      if (response !== this.state.history) {
-        console.log("History", response.data);
-        this.setState({ history: response.data });
-      }*/
-
-      this.setState({ articles:response.data });
-
-    }.bind(this));
+    return {
+      article: ""
+     };
   },
   activateLasers: function(){
-    console.log("MAH LAZERZ!")
-  },
-  renderList: function() {
-    return this.state.articles.map(function(article, i) {
-      return (
-        <p key={i} className="thisArticle" onClick={this.activateLasers}>{article.title}</p>
-      );
-    }.bind(this))
+    this.setState({article:this.props.id})
   },
   // Here we describe this component's render method
   render: function() {
