@@ -17,7 +17,7 @@ var Articles = React.createClass({
   componentDidMount: function() {
     // Get the latest history.
     helpers.getArticles().then(function(response) {
-      console.log(response);
+      //console.log(response);
 /*      if (response !== this.state.history) {
         console.log("History", response.data);
         this.setState({ history: response.data });
@@ -32,7 +32,7 @@ var Articles = React.createClass({
   },*/
   renderList: function() {
     return this.state.articles.map(function(article, i) {
-      console.log(typeof i);
+      //console.log(typeof i);
       return (
         //<p key={i} className="thisArticle" onClick={this.activateLasers}>{article.title}</p>
         <Article id={article._id} title={article.title} />

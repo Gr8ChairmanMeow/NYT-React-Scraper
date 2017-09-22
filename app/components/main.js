@@ -15,13 +15,10 @@ var Main = React.createClass({
   // The moment the page renders get the History
   componentDidMount: function() {
     // Get the latest history.
-    helpers.scrapeArticles().then(function(response) {
+/*    helpers.scrapeArticles().then(function(response) {
       console.log(response);
-/*      if (response !== this.state.history) {
-        console.log("History", response.data);
-        this.setState({ history: response.data });
-      }*/
-    }.bind(this));
+    }.bind(this));*/
+    helpers.axiosAPI().then(response => console.log(response.data.response.docs));
   },
   // Here we render the function
   render: function() {
